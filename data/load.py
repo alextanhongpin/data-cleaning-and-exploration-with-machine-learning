@@ -18,3 +18,11 @@ def load_nls97b():
     df = pd.read_csv("./data/nls97b.csv")
     df.set_index('personid', inplace=True)
     return df
+
+
+def load_ltpoland():
+    """loads the land temperature from Poland"""
+    df = pd.read_csv("./data/ltpoland.csv")
+    df.set_index('station', inplace=True)
+    df.dropna(inplace=True)
+    return df
