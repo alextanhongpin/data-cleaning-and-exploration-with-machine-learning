@@ -19,6 +19,18 @@ def load_nls97b():
     df.set_index('personid', inplace=True)
     return df
 
+def load_nls97compba():
+    """loads the National Longitudinal Survey dataset"""
+    df = pd.read_csv("./data/nls97compba.csv")
+    df.set_index('personid', inplace=True)
+    return df
+
+
+def load_nls97wages():
+    """loads the National Longitudinal Survey dataset"""
+    df = pd.read_csv("./data/nls97wages.csv")
+    return df
+
 
 def load_ltpoland():
     """loads the land temperature from Poland"""
