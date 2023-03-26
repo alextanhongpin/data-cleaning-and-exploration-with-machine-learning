@@ -32,9 +32,22 @@ def load_nls97wages():
     return df
 
 
+def load_nls97degreelevel():
+    """loads the National Longitudinal Survey dataset"""
+    df = pd.read_csv("./data/nls97degreelevel.csv")
+    return df
+
+
 def load_ltpoland():
     """loads the land temperature from Poland"""
     df = pd.read_csv("./data/ltpoland.csv")
     df.set_index('station', inplace=True)
     df.dropna(inplace=True)
+    return df
+
+
+def load_landtemps2019avgs():
+    """The land temperature datase contains the average temperature readings 
+    (in Celsius) in 2019 from over 12,000 stations across the world."""
+    df = pd.read_csv("./data/landtemps2019avgs.csv")
     return df
