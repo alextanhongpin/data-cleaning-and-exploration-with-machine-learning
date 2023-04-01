@@ -51,3 +51,12 @@ def load_landtemps2019avgs():
     (in Celsius) in 2019 from over 12,000 stations across the world."""
     df = pd.read_csv("./data/landtemps2019avgs.csv")
     return df
+
+
+def load_fossilfueltaxrate14():
+    """This dataset on implied gasoline tax by country is available for 
+    public use on the Harvard Dataverse.
+    """
+    df = pd.read_csv("./data/fossilfueltaxrate14.csv")
+    df.set_index('countrycode', inplace=True)
+    return df
