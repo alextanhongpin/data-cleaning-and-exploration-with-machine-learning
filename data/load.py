@@ -60,3 +60,16 @@ def load_fossilfueltaxrate14():
     df = pd.read_csv("./data/fossilfueltaxrate14.csv")
     df.set_index('countrycode', inplace=True)
     return df
+
+
+def load_un_income():
+    df = pd.read_csv("./data/un_income_gap.csv")
+    df.set_index('country', inplace=True)
+    df['incomeratio'] = df.femaleincomepercapita / df.maleincomepercapita
+    df['educratio'] = df.femaleyearseducation / df.maleyearseducation
+    df['laborforcepartratio'] = df.femalelaborforceparticipation / df.malelaborforceparticipation
+    df['humandevratio'] = df.femalehumandevelopment / df.malehumandevelopment
+    df.dropna(subset=['incomeratio'], inplace=True)
+    
+    return df
+    
