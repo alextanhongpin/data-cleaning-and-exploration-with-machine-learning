@@ -73,3 +73,14 @@ def load_un_income():
     
     return df
     
+
+def load_kc_house_data():
+    df = pd.read_csv('./data/kc_house_data.csv')
+    df.set_index('id', inplace=True)
+    return df
+
+
+def load_healthinfosample():
+    df = pd.read_csv('./data/healthinfosample.csv')
+    df.set_index('personid', inplace=True)
+    return df

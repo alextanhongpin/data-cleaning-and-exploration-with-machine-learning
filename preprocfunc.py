@@ -19,3 +19,24 @@ class OutlierTrans(BaseEstimator, TransformerMixin):
             X_new.loc[(X_new[col] > outlier_high) | (X_new[col] < outlier_low), col] = np.nan  
         return X_new.values
     
+class MakeOrdinal(BaseEstimator, TransformerMixin):
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X, y=None):
+        X_new = X.copy()
+        for col in X_new.columns:
+            cats = np.sort(X_new[col].unique())
+            X_new[col] = X_new.apply(lambda x: int(np.where(cats == x[col])[0]), axis=1)
+        return X_new.values
+    
+class ReplaceVals(BaseEstimator, TransformerMixin):
+    def __init__(self, repdict):
+        self.repdict = repdict
+                                     
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X, y=None):
+        X_new = X.copy().replace(self.repdict)
+        return X_new.values
