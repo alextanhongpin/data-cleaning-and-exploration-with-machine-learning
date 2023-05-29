@@ -84,3 +84,8 @@ def load_healthinfosample():
     df = pd.read_csv('./data/healthinfosample.csv')
     df.set_index('personid', inplace=True)
     return df
+
+
+def load_machinefailuretype():
+    df = pd.read_csv('./data/machinefailuretype.csv')
+    return df
